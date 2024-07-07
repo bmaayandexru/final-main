@@ -2,7 +2,7 @@ name: final-bma-pipeline
 on: push
 jobs:
   test:
-    name: final-main-test
+    name: final-bma-test
     runs-on: ubuntu-latest
     container: golang:1.22
     steps:
