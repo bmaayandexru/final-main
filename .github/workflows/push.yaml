@@ -1,4 +1,4 @@
-name: final-main-pipeline
+name: final-bma-pipeline
 on: push
 jobs:
   test:
