@@ -111,6 +111,7 @@ func main() {
 	client := 1
 	address := "Псков, д. Пушкина, ул. Колотушкина, д. 5"
 	p, err := service.Register(client, address)
+
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -119,6 +120,7 @@ func main() {
 	// изменение адреса
 	newAddress := "Саратов, д. Верхние Зори, ул. Козлова, д. 25"
 	err = service.ChangeAddress(p.Number, newAddress)
+
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -126,6 +128,7 @@ func main() {
 
 	// изменение статуса
 	err = service.NextStatus(p.Number)
+
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -133,6 +136,7 @@ func main() {
 
 	// вывод посылок клиента
 	err = service.PrintClientParcels(client)
+
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -140,6 +144,7 @@ func main() {
 
 	// попытка удаления отправленной посылки
 	err = service.Delete(p.Number)
+
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -148,6 +153,7 @@ func main() {
 	// вывод посылок клиента
 	// предыдущая посылка не должна удалиться, так как её статус «НЕ «зарегистрирована»
 	err = service.PrintClientParcels(client)
+
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -155,6 +161,7 @@ func main() {
 
 	// регистрация новой посылки
 	p, err = service.Register(client, address)
+
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -162,6 +169,7 @@ func main() {
 
 	// удаление новой посылки
 	err = service.Delete(p.Number)
+
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -170,6 +178,7 @@ func main() {
 	// вывод посылок клиента
 	// здесь не должно быть последней посылки, так как она должна была успешно удалиться
 	err = service.PrintClientParcels(client)
+
 	if err != nil {
 		fmt.Println(err)
 		return
